@@ -12,7 +12,5 @@ Route.group(() => {
     Route.post('/auth/logout', 'AuthController.logout');
     Route.post('/auth/email/verify/resend', 'AuthController.resendVerificationEmail');
 
-    Route.group(() => {
-        Route.get('/users', 'UserController.index');
-    }).middleware('verifyEmail');
+    Route.group(() => {}).middleware('verifyEmail');
 }).middleware('auth:api');
