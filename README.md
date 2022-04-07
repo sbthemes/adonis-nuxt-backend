@@ -4,6 +4,7 @@
 - copy .env.example to .env
 - Run command: `npm install`
 - Run command: `node ace generate:key`. This command will generate. Copy that key set as APP_KEY in .env file.
+- Edit `ecosystem.config.js` file and change name to domain name or something unique on server.
 
 **This repo includes all auth routes with user registration**
 
@@ -19,8 +20,6 @@ npm install --no-save
 npm run build
 
 
-#pm2 start npm --name "site-domain" --watch -- start (first time only)
+ENV_PATH=/path/to/env/.env pm2 restart ecosystem.config.js
 
-pm2 restart site-domain
-
-node ace migration:run
+node ace migration:run --force
