@@ -37,7 +37,7 @@ export default class VerifyEmailNotification extends BaseMailer {
         </mj-column>`).render();
 
         message
-            .from('admin@example.com')
+            .from(Env.get('MAIL_FROM'))
             .to(this.user.email)
             .subject('Verify Email Address')
             .html(htmlOutput);
